@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/users")
 public class UserResources {
 
-    //TODO Adcionar REGEX para telefone, email
+    //TODO Adicionar REGEX para telefone, email
     @GetMapping
     public ResponseEntity<User> findAll(){
         User u = new User(1L, "Carlos", "carlos@email.com", "993003-7373", "12345");
