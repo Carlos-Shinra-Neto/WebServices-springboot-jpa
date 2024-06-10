@@ -1,9 +1,7 @@
 package com.webservice.project.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
@@ -16,14 +14,18 @@ public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private Instant moment;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
 
-    public Order(){};
+    public Order() {}
+
+    public Order(Instant moment, User client) {
+        this.moment = moment;
+        this.client = client;
+    }
 
     public long getId() {
         return id;
@@ -46,11 +48,6 @@ public class Order implements Serializable {
     }
 
     public void setClient(User client) {
-        this.client = client;
-    }
-
-    public Order( Instant moment, User client) {
-        this.moment = moment;
         this.client = client;
     }
 
