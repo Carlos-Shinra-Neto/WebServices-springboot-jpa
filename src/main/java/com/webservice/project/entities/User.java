@@ -1,5 +1,6 @@
 package com.webservice.project.entities;
 
+import com.webservice.project.entities.enums.OrderStatus;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
